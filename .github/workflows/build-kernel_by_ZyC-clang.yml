@@ -101,6 +101,11 @@ jobs:
              tar -C zyc-clang/ -xf clang16.tar.gz
         fi
 
+        if [ ${{ env.ZYC_CLANG_VERSION }} = 13 ]; then                       
+             wget -O clang13.tar.gz https://github.com/ZyCromerZ/Clang/releases/download/13.0.1-20230207-release/Clang-13.0.1-20230207.tar.gz
+             tar -C zyc-clang/ -xf clang13.tar.gz
+        fi
+
     - name: Download mkbootimg tools
       if: env.BUILD_BOOT_IMG == 'true'
       run: |
